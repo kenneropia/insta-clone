@@ -1,0 +1,6 @@
+export const DASHBOARD = '/'
+export const LOG_IN = '/login'
+export const SIGN_UP = '/signup'
+export const PROFILE = '/p/:username'
+export const ALL_COMMENTS = '/comments/:postId'
+export const NOT_FOUND = '*'
