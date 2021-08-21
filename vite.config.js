@@ -12,6 +12,7 @@ const config = {
       external: [
         'react', // ignore react stuff
         'react-dom',
+        'react-DOM',
       ],
       input: {
         main: resolve(__dirname, 'index.html'),
