@@ -1,27 +1,34 @@
 import reactRefresh from '@vitejs/plugin-react-refresh'
-
+const { resolve } = require('path')
 /**
  * @type {import('vite').UserConfig}
  */
 const config = {
   plugins: [reactRefresh()],
   env: 'node',
+
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:1337/',
+        target: ' https://menogram-server.herokuapp.com/',
         changeOrigin: true,
         secure: false,
         ws: true,
       },
       '/users': {
-        target: 'http://localhost:1337/',
+        target: ' https://menogram-server.herokuapp.com/',
         changeOrigin: true,
         secure: false,
         ws: true,
       },
       '/uploads': {
-        target: 'http://localhost:1337/',
+        target: 'https://menogram-server.herokuapp.com/',
+        changeOrigin: true,
+        secure: false,
+        ws: true,
+      },
+      '/auth': {
+        target: 'https://menogram-server.herokuapp.com/',
         changeOrigin: true,
         secure: false,
         ws: true,

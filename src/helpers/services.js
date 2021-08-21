@@ -45,7 +45,7 @@ const signUp = async (data) => {
       user: { username, email, id },
       jwt,
     },
-  } = await axios.post('http://localhost:1337/auth/local/register', data)
+  } = await axios.post(' /auth/local/register', data)
   let user = {
     jwt,
     username,
@@ -75,7 +75,7 @@ const getUserLogin = async (identifier, password) => {
         },
       },
     },
-  } = await axios.post('http://localhost:1337/auth/local', {
+  } = await axios.post('/auth/local', {
     identifier,
     password,
   })

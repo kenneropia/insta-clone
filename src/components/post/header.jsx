@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import * as IMAGES from './../../constants/default_images'
 
 const Header = ({ user }) => {
   return (
@@ -11,7 +12,10 @@ const Header = ({ user }) => {
         <Link to={`/p/${user.username}`} className="flex items-center">
           <img
             className="rounded-full h-8 w-8 flex mr-3"
-            src={user.profile_pic.profile_pic.url}
+            src={user.profile_pic?.profile_pic?.url}
+            onError={(e) => {
+              e.target.src = IMAGES.DEFAULT_IMAGE_PATH
+            }}
           />
           <p className="font-bold">{user.username}</p>
         </Link>

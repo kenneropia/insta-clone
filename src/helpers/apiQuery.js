@@ -169,7 +169,7 @@ const getCommentsForPost = async (postId, _start = 0, _limit = 5) => {
 
 const createComment = async (comment, postId, _start = 0, _limit = 5) => {
   _start = _start + 1
-  let newComment = await axios.post(`http://localhost:1337/api/comments/`, {
+  let newComment = await axios.post(`/api/comments/`, {
     comment,
     post: postId,
   })
@@ -190,16 +190,15 @@ const getImagesOfUser = async () => {
 }
 
 const getFollowship = async (userId) => {
-  console.log(userId)
-  const following = await axios.get('/api/followships/count', {
+  const followers = await axios.get('/api/followships/count', {
     params: { following: userId },
   })
 
-  const followed = await axios.get('/api/followships/count', {
+  const following = await axios.get('/api/followships/count', {
     params: { user: userId },
   })
 
-  return { followed: followed.data, following: following.data }
+  return { following: following.data, followers: followers.data }
 }
 
 const query = {

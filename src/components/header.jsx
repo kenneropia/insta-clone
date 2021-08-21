@@ -81,7 +81,7 @@ const Header = () => {
                     <Link to={`/p/${authUser?.username}`}>
                       <img
                         className="rounded-full h-8 w-8 flex"
-                        src={authUser.profile_pic}
+                        src={authUser?.profile_pic}
                         alt={`${authUser?.username} profile`}
                         onError={(e) => {
                           e.target.src = IMAGES.DEFAULT_IMAGE_PATH

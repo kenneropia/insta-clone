@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 
 import query from './../helpers/apiQuery'
 import Header from '../components/header'
@@ -21,9 +22,9 @@ export default function Profile() {
   return (
     <div className="bg-gray-background">
       <Header />
-      <div className="container mx-auto max-w-screen-lg h-full  my-7 ">
+      <div className="container flex flex-col items-center md:mx-auto max-w-screen-lg h-full  my-7 ">
         {user == null ? (
-          <p>loading...</p>
+          <Loader type="TailSpin" color="#00BFFF" height={200} width={200} />
         ) : user ? (
           <UserProfile user={user} />
         ) : (

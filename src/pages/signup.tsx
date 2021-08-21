@@ -23,8 +23,10 @@ const SignUp = () => {
   })
 
   const handleLogin = async (e) => {
+    console.log(e)
+
+    isLoading(true)
     try {
-      isLoading(true)
       e.preventDefault()
       let data = {}
       data['email'] = email
@@ -33,15 +35,15 @@ const SignUp = () => {
       let user = await auth.signUp(data)
       history.push(ROUTES.DASHBOARD)
     } catch (err) {
-      isLoading(true)
-      let errorMessage = Array.isArray(err.response.data.data[0].messages)
+      let errorMessage = Array.isArray(err.response?.data?.data)
         ? err.response.data.data[0].messages.map((eL) => eL.message)
-        : err.response.message
+        : err?.message
+      console.log(err.message)
       setError(errorMessage)
       setUserName('')
-      setEmail('')
       setPassword('')
     }
+    isLoading(false)
   }
 
   return (

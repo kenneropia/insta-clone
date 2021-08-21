@@ -13,9 +13,6 @@ const Login = ({ location }) => {
   const [loading, isLoading] = useState(false)
 
   const [error, setError] = useState([])
-  // if (auth.isUserLoggedin){
-  // history.push("/dashboard")
-  // }
 
   const isInvalid = password === '' || userName === ''
 
@@ -35,6 +32,7 @@ const Login = ({ location }) => {
       setUserName('')
       setPassword('')
     }
+    isLoading(false)
   }
   useEffect(() => {
     document.title = 'Login - Instagram'

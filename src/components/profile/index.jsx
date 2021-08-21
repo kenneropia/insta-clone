@@ -6,19 +6,23 @@ import Photos from './photos'
 
 export default function UserProfile({ user }) {
   const reducer = (state, newState) => ({ ...state, ...newState })
-  const initialState = { profile: {}, photosCollection: [], followerCount: 0 }
-  const [{ profile, photosCollection, followerCount }, dispatch] = useReducer(
+  const initialState = {
+    profile: {},
+    photosCollection: null,
+    followshipCount: {},
+  }
+  const [{ profile, photosCollection, followshipCount }, dispatch] = useReducer(
     reducer,
     initialState
   )
 
   useEffect(async () => {
     let postImages = await query.getImagesOfUser()
-    let followships = await query.getFollowship(user.id)
+    let followship = await query.getFollowship(user.id)
     dispatch({
       profile: user,
       photosCollection: postImages,
-      followerCount: followships.following,
+      followshipCount: followship,
     })
   }, [])
 
@@ -26,7 +30,7 @@ export default function UserProfile({ user }) {
     <>
       <ProfileHeader
         photosCount={photosCollection ? photosCollection.length : 0}
-        followerCount={followerCount}
+        followshipCount={followshipCount}
         user={user}
         setFollowerCount={dispatch}
       />

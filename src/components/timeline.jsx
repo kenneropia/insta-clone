@@ -13,14 +13,13 @@ const TimeLine = () => {
   } = React.useContext(AppContext)
 
   React.useEffect(async () => {
-    const queriedPosts = await query.getMultiplePosts(getUserDetails().id)
-    queriedPosts.sort((a, b) => b.created_at - a.created_at)
-    console.log(queriedPosts)
+    let queriedPosts = await query.getMultiplePosts(getUserDetails().id)
+    queriedPosts = queriedPosts.sort((a, b) => b.created_at - a.created_at)
     setPosts(queriedPosts)
   }, [])
   return (
     <div className="container items-center flex flex-col h-[min-content] px-3 md:w-7/12 w-full">
-      {!posts ? (
+      {posts === null ? (
         [1, 2, 3, 4].map(() => (
           <Skeleton
             width={450}

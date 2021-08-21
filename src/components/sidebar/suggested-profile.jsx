@@ -23,7 +23,7 @@ const SuggestedProfile = ({ profile }) => {
       <div className="flex items-center justify-between">
         <img
           className="rounded-full w-8 h-8 flex mr-3"
-          src={`${profile.profile_pic?.profile_pic?.url}`}
+          src={`${profile?.profile_pic?.profile_pic?.url}`}
           alt=""
           onError={(e) => {
             e.target.src = IMAGES.DEFAULT_IMAGE_PATH
