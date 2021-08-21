@@ -9,11 +9,11 @@ const config = {
   env: 'node',
   build: {
     rollupOptions: {
-      // external: [
-      //   'react', // ignore react stuff
-      //   'react-dom',
-      //   'react-DOM',
-      // ],
+      external: [
+        'react', // ignore react stuff
+        'react-dom',
+        'react-DOM',
+      ],
       input: {
         main: resolve(__dirname, 'index.html'),
       },
