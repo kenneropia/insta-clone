@@ -1,4 +1,5 @@
 import reactRefresh from '@vitejs/plugin-react-refresh'
+
 const { resolve } = require('path')
 /**
  * @type {import('vite').UserConfig}
@@ -6,7 +7,14 @@ const { resolve } = require('path')
 const config = {
   plugins: [reactRefresh()],
   env: 'node',
-
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        nested: resolve(__dirname, 'nested/index.html'),
+      },
+    },
+  },
   server: {
     proxy: {
       '/api': {
