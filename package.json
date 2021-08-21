@@ -29,7 +29,7 @@
     "react:start": "vite",
     "react:build": "vite build",
     "start": "run-p watch:css react:start",
-    "build": "react:build",
+    "build": "vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
