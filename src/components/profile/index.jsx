@@ -17,7 +17,7 @@ export default function UserProfile({ user }) {
   )
 
   useEffect(async () => {
-    let postImages = await query.getImagesOfUser()
+    let postImages = await query.getImagesOfUser(profile.id)
     let followship = await query.getFollowship(user.id)
     dispatch({
       profile: user,

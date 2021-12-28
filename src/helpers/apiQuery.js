@@ -180,10 +180,11 @@ const createComment = async (comment, postId, _start = 0, _limit = 5) => {
   return newComment
 }
 
-const getImagesOfUser = async () => {
+const getImagesOfUser = async (profileId = null) => {
+  console.log(userData.id)
   let posts = await axios.get(`/api/posts`, {
     params: {
-      user: userData.id,
+      user: profileId,
     },
   })
   return posts.data.map(({ images }) => images)
